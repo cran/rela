@@ -6,22 +6,23 @@
 
 \docType{package}
 
-\title{Scale item analysis with standard errors}
+\title{Scale item analysis with standard errors and principal axis factoring}
 
 \description{The package's functions analyze scale items as a collective measure 
 providing information both on the item and scale level. Cronbach's reliability estimates are
- reported both in its original and standardized form along with respective standard 
+ reported both in the original and standardized form along with respective standard 
 errors and confidence interval lower and upper bounds. Further the principal axis factoring 
 function (paf) included in the package allows to preliminarily screen the items if they load
-on the same single latent construct.}
+on the same single latent construct. Both functions' output can be viewed abbreviated using
+ summary() as well as in graphical form using plot().}
 
 \details{
 
 \tabular{ll}{
 Package: \tab rela\cr
 Type: \tab Package\cr
-Version: \tab 4.0\cr
-Date: \tab 2008-10-26\cr
+Version: \tab 4.1\cr
+Date: \tab 2009-10-25\cr
 License: \tab Artistic\cr
 LazyLoad: \tab yes\cr}
 

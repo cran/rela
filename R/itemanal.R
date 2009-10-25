@@ -35,9 +35,10 @@ for (i in 1:ncol(x)) {
 			}
 		}
 	}
+	test
 }
 
-same(object)
+notneed <- same(object)
 
 
 object<-(na.omit(object))
@@ -202,9 +203,12 @@ n.10 <- length(apply(object,1,length))
 ave <- function(x) {
 (scale.sum-x)/(length(apply(object,1,length)))}
 
-mean.if.deleted <- for (i in item.sum) {sapply(item.sum, ave) }
+mean.if.deleted <- c()
+for (i in 1:length(item.sum)) {
+	mean.if.deleted<-rbind(mean.if.deleted,ave(item.sum[i]))
+}
 
-deleted <- data.frame("Scale.mean"=scale.mean.var[,-1],"Mean.if.deleted"=mean.if.deleted)
+deleted <- data.frame("Scale.mean"=scale.mean.var[,-1],"Mean.if.deleted"=mean.if.deleted[,1])
 }
 
 summary.statement8a <- if.deleted(object)

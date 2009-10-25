@@ -8,9 +8,11 @@
 coherent scale. Among the traditionally used Cronbach's Alpha the function also produces standardized estimates 
 as well as Duhachek and Iacobucci's (2004) proposed standrad errors and respective confidence intervals for the
 reliability coefficients. Further, the function provides a bootstrap estimate of the convidance interval of both 
-the regular and standardized alpha values. The function will produce three plots: A density plot of the alpha and 
-standardized alpha bootstrap simulations, a line plot of the "if item deleted" alpga values by each item and a 
-star plot for all of the items for their respective "if item deleted" scale values.}
+the regular and standardized alpha values. The function's output can be used to produce three plots: 
+A density plot of the alpha and standardized alpha bootstrap simulations, a line plot of the "if item deleted" 
+alpha values by each item and a star plot for all of the items for their respective "if item deleted" scale values. 
+These plots can be called by submitting the output object of the function to the plot() statement. Similarly, the
+ output can be viewed in an abbreviated form by submitting the output object to the summary() function.}
 
 \usage{itemanal(object, SE.par = 1.96, boots = 1000)}
 
@@ -79,7 +81,11 @@ Pett, M. A., Lackey, N. R., & Sullivan, J. J. (2003). \emph{Making sense of fact
 
 \author{Michael Chajewski ( \url{http://www.chajewski.com} )}
 
-\note{Under the current version of this function/package missing data is deleted listwise. Subsequently only full cases are used in determining scale reliability.}
+\note{Under the current version of this function/package missing data is deleted listwise. Consequently only full cases are used in determining scale reliability. Also, note that the legends for the plots are placed interactively. 
+Furthermore, the default plot function for the itemanal() object uses a windows() statement to produce several 
+plots. This prevents prior plots from being replaced at the same time allowing for numerous plots to be produced.
+ However, this option may not be fully functional in MAC and Linux environemnts since the function calls on a
+ windows metafile.}
 
 \examples{
 
@@ -87,12 +93,12 @@ library(rela)
 
 Belts <- Seatbelts[,1:7]
 Belts.item <- itemanal(Belts)
-Belts.item
+summary(Belts.item)
 
 Belts2 <- Belts[,-5]
 Belts2 <- Belts2[,-5] 
 Belts.item2 <- itemanal(Belts2)
-Belts.item2
+summary(Belts.item2)
 }
 
 \concept{item analysis}

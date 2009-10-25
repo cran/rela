@@ -7,7 +7,10 @@
 \description{This function performs a prinxipal axis factor analysis providing the user with a set
 of preliminary informative estimates regarding the dimensionality and scale functioning of the submitted items. 
 The function does not allow for rotations and is by no means considered a full factor analysis tool, but rather 
-a supplemental module.}
+a supplemental module. The function's output object can be submitted to the summary() function for an abbreviated
+ version of the results. Further, the output object can be graphed, using plot(), producing four plots: a comparison
+ of the reproduced correlation residuals, initial and final item communalities (with an interactively placed legend), 
+measures of sampling adequacy, and an Eigenvalue scree plot.}
 
 \usage{paf(object, eigcrit=1, convcrit=.001)}
 
@@ -78,7 +81,7 @@ Pett, M. A., Lackey, N. R., & Sullivan, J. J. (2003). \emph{Making sense of fact
 
 \author{Michael Chajewski ( \url{http://www.chajewski.com} )}
 
-\note{Under the current version of this function/package missing data is deleted listwise. Subsequently only full cases are used in determining scale reliability.}
+\note{Under the current version of this function/package missing data is deleted listwise. Consequently only full cases are used in determining scale reliability. Furthermore, the default plot function for the itemanal() object uses a windows() statement to produce several plots. This prevents prior plots from being replaced at the same time allowing for numerous plots to be produced. However, this option may not be fully functional in MAC and Linux environemnts since the function calls on a windows metafile.}
 
 \examples{
 
@@ -88,13 +91,13 @@ Belts <- Seatbelts[,1:7]
 summary(Belts)
 
 paf.belt <- paf(Belts)
-paf.belt
+summary(paf.belt)
 
 Belts2 <- Belts[,-5]
 Belts2 <- Belts2[,-5] 
 
 paf.belt2 <- paf(Belts2)
-paf.belt2
+summary(paf.belt2)
 }
 
 \concept{mulivariate}
